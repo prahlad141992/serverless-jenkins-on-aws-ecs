@@ -7,11 +7,12 @@ export AWS_REGION="us-east-1"
 export UNIQUEBATCH="x135"
 
 PRIVATE_SUBNETS='["subnet-060586d9be5b6ed9e","subnet-0ac1fb98cb711c23b"]'
-#PUBLIC_SUBNETS='["subnet-060586d9be5b6ed9e","subnet-0ac1fb98cb711c23b"]'
+PUBLIC_SUBNETS='["subnet-060586d9be5b6ed9e","subnet-0ac1fb98cb711c23b"]'
 
 #export TF_VAR_route53_zone_id="Z077433321WF0CEFQHGTF"
 #export TF_VAR_route53_domain_name="exampledomain.com"
 export TF_VAR_vpc_id="vpc-030210a94e6675ff6"
 export TF_VAR_efs_subnet_ids=${PRIVATE_SUBNETS}
 #export TF_VAR_jenkins_controller_subnet_ids=${PRIVATE_SUBNETS}
-#export TF_VAR_alb_subnet_ids=${PUBLIC_SUBNETS}
+export TF_VAR_alb_subnet_ids=${PUBLIC_SUBNETS}
+

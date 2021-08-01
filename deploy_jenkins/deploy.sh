@@ -21,5 +21,6 @@ terraform apply \
     tf.plan
 
 #terraform destroy \
- #   -input=false \
-  #  -auto-approve=true 
+ #  -input=false \
+ # -auto-approve=true 
+

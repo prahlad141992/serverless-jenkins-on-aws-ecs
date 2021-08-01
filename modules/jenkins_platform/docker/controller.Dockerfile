@@ -1,5 +1,4 @@
 # Setup build arguments with default versions
-ARG TERRAFORM_VERSION=1.0.3
 FROM jenkins/jenkins:alpine
 USER root
 

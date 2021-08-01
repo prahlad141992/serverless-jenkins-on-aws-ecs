@@ -41,9 +41,10 @@ module "serverless_jenkins" {
   #efs_kms_key_arn                 = aws_kms_key.efs_kms_key.arn
   efs_subnet_ids                  = var.efs_subnet_ids
   #jenkins_controller_subnet_ids   = var.jenkins_controller_subnet_ids
-  #alb_subnet_ids                  = var.alb_subnet_ids
-  #alb_ingress_allow_cidrs         = ["${module.myip.address}/32"]
+  alb_subnet_ids                  = var.alb_subnet_ids
+  alb_ingress_allow_cidrs         = ["0.0.0.0/0"]
   #alb_acm_certificate_arn         = module.acm.this_acm_certificate_arn
+  alb_acm_certificate_arn         = "arn:aws:acm:us-east-1:806483491539:certificate/a434e826-52e1-4793-a400-9394fa44c577"
   #route53_create_alias            = true
   #route53_alias_name              = var.jenkins_dns_alias
  # route53_zone_id                 = var.route53_zone_id
