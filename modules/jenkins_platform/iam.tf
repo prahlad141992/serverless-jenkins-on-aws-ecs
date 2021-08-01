@@ -266,7 +266,6 @@ resource "aws_iam_role_policy_attachment" jenkins_controller_task {
 }
 
 
-/*
 //CloudWatch
 data "aws_iam_policy_document" "cloudwatch" {
   policy_id = "key-policy-cloudwatch"
@@ -278,7 +277,8 @@ data "aws_iam_policy_document" "cloudwatch" {
     effect = "Allow"
     principals {
       type = "AWS"
-      identifiers = ["arn:aws:iam::${local.account_id}:root"]
+      #identifiers = ["arn:aws:iam::${local.account_id}:root"]
+      identifiers = ["*"]
     }
     resources = ["*"]
   }
@@ -299,5 +299,5 @@ data "aws_iam_policy_document" "cloudwatch" {
     resources = ["*"]
   }
 }
-*/
+
 

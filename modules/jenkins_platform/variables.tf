@@ -189,7 +189,6 @@ variable jenkins_controller_task_log_retention_days {
   default = 30
 }
 
-/*
 variable jenkins_controller_subnet_ids {
   type        = list(string)
   description = "A list of subnets for the jenkins controller fargate service (required)"
@@ -208,6 +207,7 @@ variable ecs_execution_role_arn {
   default     = null
 }
 
+/*
 // Route 53
 variable route53_create_alias {
   type    = string

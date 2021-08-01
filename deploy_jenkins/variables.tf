@@ -47,11 +47,11 @@ variable efs_subnet_ids {
 #   default = ["subnet-5d12c221","subnet-2178df6d","subnet-29452043"]
 }
 
-#variable jenkins_controller_subnet_ids {
- # type        = list(string)
-  #description = "A list of subnets for the jenkins controller fargate service. Should be private"
+variable jenkins_controller_subnet_ids {
+  type        = list(string)
+  description = "A list of subnets for the jenkins controller fargate service. Should be private"
 #   default = ["subnet-5d12c221","subnet-2178df6d","subnet-29452043"]
-#}
+}
 
 variable alb_subnet_ids {
   type        = list(string)
