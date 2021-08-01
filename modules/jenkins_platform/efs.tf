@@ -19,24 +19,24 @@ resource "aws_efs_file_system" this {
 }
 
 
-#resource "aws_efs_access_point" this {
- # file_system_id = aws_efs_file_system.this.id
+resource "aws_efs_access_point" this {
+  file_system_id = aws_efs_file_system.this.id
 
-  #posix_user {
-   # gid = 0
-    #uid = 0
-  #}
-  #root_directory {
-   # path = "/"
-    #creation_info {
-     # owner_gid   = var.efs_access_point_uid
-      #owner_uid   = var.efs_access_point_gid
-      #permissions = "755"
-    #}
-  #}
+  posix_user {
+    gid = 0
+    uid = 0
+  }
+  root_directory {
+    path = "/"
+    creation_info {
+      owner_gid   = var.efs_access_point_uid
+      owner_uid   = var.efs_access_point_gid
+      permissions = "755"
+    }
+  }
 
-  #tags = var.tags
-#}
+  tags = var.tags
+}
 
 
 resource "aws_efs_mount_target" this {

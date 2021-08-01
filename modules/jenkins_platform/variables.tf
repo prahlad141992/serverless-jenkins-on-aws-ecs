@@ -51,17 +51,17 @@ variable efs_subnet_ids {
   default     = null
 }
 
-#variable efs_access_point_uid {
- # type        = number
-  #description = "The uid number to associate with the EFS access point" // Jenkins 1000
-  #default     = 1000
-#}
+variable efs_access_point_uid {
+  type        = number
+  description = "The uid number to associate with the EFS access point" // Jenkins 1000
+  default     = 1000
+}
 
-#variable efs_access_point_gid {
- # type        = number
-  #description = "The gid number to associate with the EFS access point" // Jenkins 1000
-  #default     = 1000
-#}
+variable efs_access_point_gid {
+  type        = number
+  description = "The gid number to associate with the EFS access point" // Jenkins 1000
+  default     = 1000
+}
 
 #variable efs_enable_backup {
  # type    = bool

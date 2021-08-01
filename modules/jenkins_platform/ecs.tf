@@ -54,7 +54,7 @@ resource "aws_ecs_task_definition" jenkins_controller {
   family = var.name_prefix
 
   task_role_arn            = var.jenkins_controller_task_role_arn != null ? var.jenkins_controller_task_role_arn : aws_iam_role.jenkins_controller_task_role.arn
-  execution_role_arn       = var.ecs_execution_role_arn != null ? var.ecs_execution_role_arn : aws_iam_role.jenkins_controller_task_role.arn
+  execution_role_arn       = var.ecs_execution_role_arn != null ? var.ecs_execution_role_arn : aws_iam_role.ecs_execution_role.arn
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu                      = var.jenkins_controller_cpu
@@ -69,7 +69,7 @@ resource "aws_ecs_task_definition" jenkins_controller {
       transit_encryption = "ENABLED"
 
       authorization_config {
-        #access_point_id = aws_efs_access_point.this.id
+        access_point_id = aws_efs_access_point.this.id
         iam             = "ENABLED"
       }
     }
