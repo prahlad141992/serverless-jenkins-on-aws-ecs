@@ -67,11 +67,7 @@ resource "null_resource" "build_docker_image" {
   #depends_on = [null_resource.render_template]
   provisioner "local-exec" {
     command = <<EOF
-docker login -u AWS -p ${data.aws_ecr_authorization_token.token.password} ${local.ecr_endpoint} && \
-docker build -t ${aws_ecr_repository.jenkins_controller.repository_url}:latest -f ${path.module}/docker/controller.Dockerfile . && \
-docker build -t ${aws_ecr_repository.jenkins_agent.repository_url}:latest -f ${path.module}/docker/agent.Dockerfile . && \
-docker push ${aws_ecr_repository.jenkins_controller.repository_url}:latest && \
-docker push ${aws_ecr_repository.jenkins_agent.repository_url}:latest
+docker login -u AWS -p ${data.aws_ecr_authorization_token.token.password} ${local.ecr_endpoint} && docker build -t ${aws_ecr_repository.jenkins_controller.repository_url}:latest -f ${path.module}/docker/controller.Dockerfile . && docker build -t ${aws_ecr_repository.jenkins_agent.repository_url}:latest -f ${path.module}/docker/agent.Dockerfile . && docker push ${aws_ecr_repository.jenkins_controller.repository_url}:latest && docker push ${aws_ecr_repository.jenkins_agent.repository_url}:latest
 EOF
   }
 }

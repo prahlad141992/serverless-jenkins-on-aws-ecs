@@ -6,7 +6,7 @@ export TF_STATE_OBJECT_KEY="terraform/jenkinsstate"
 export AWS_REGION="us-east-1"
 export UNIQUEBATCH="x135"
 
-PRIVATE_SUBNETS='["subnet-060586d9be5b6ed9e","subnet-0ac1fb98cb711c23b"]'
+PRIVATE_SUBNETS='["subnet-02970ee28b3d0282f","subnet-0f287d8edcffb91f9"]'
 PUBLIC_SUBNETS='["subnet-060586d9be5b6ed9e","subnet-0ac1fb98cb711c23b"]'
 
 #export TF_VAR_route53_zone_id="Z077433321WF0CEFQHGTF"

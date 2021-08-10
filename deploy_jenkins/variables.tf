@@ -14,27 +14,29 @@ variable "tags" {
   default     = {}
 }
 
-#variable route53_domain_name {
- # type        = string
-  #description = "The domain"
-#}
+/*
+variable route53_domain_name {
+  type        = string
+  description = "The domain"
+}
 
-#variable route53_zone_id {
- # type        = string
-  #description = <<EOF
-#The route53 zone id where DNS entries will be created. Should be the zone id
-#for the domain in the var route53_domain_name.
-#EOF
-#}
+variable route53_zone_id {
+  type        = string
+  description = <<EOF
+The route53 zone id where DNS entries will be created. Should be the zone id
+for the domain in the var route53_domain_name.
+EOF
+}
 
-#variable jenkins_dns_alias {
- # type        = string
-  #description = <<EOF
-#The DNS alias to be associated with the deployed jenkins instance. Alias will
-#be created in the given route53 zone
-#EOF
- # default     = "jenkins-controller"
-#}
+variable jenkins_dns_alias {
+  type        = string
+  description = <<EOF
+The DNS alias to be associated with the deployed jenkins instance. Alias will
+be created in the given route53 zone
+EOF
+  default     = "jenkins-controller"
+}
+*/
 
 variable vpc_id {
   type        = string
