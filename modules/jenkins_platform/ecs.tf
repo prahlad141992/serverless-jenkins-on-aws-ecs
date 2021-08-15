@@ -113,6 +113,12 @@ resource "aws_ecs_service" jenkins_controller {
   }
 
   depends_on = [aws_lb_listener.https]
+
+  enable_ecs_managed_tags = true
+  propagate_tags = "TASK_DEFINITION"
+
+  tags = var.tags
+  
 }
 
 

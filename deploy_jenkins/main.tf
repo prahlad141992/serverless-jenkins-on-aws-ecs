@@ -4,11 +4,15 @@ locals {
   account_id  = data.aws_caller_identity.current.account_id
   region      = data.aws_region.current.name
   name_prefix = "cm-jenkins-master"
+  env             = "prod"
+  product         = "jenkins"
+  uai             = "UAI1010163"
 
   tags = {
-    team     = "devops"
-    solution = "jenkins"
-    env      = "Prod"
+    Name             = "${local.name_prefix}"
+    Environment      = "${local.env}"
+    Product          = "${local.product}"
+    UAI              = "${local.uai}"
   }
 }
 
@@ -28,17 +32,17 @@ locals {
   #tags = local.tags
 #}
 
-#// An example of creating a KMS key
-#resource "aws_kms_key" "efs_kms_key" {
- # description = "KMS key used to encrypt Jenkins EFS volume"
-#}
+// An example of creating a KMS key
+resource "aws_kms_key" "efs_kms_key" {
+  description = "KMS key used to encrypt Jenkins EFS volume"
+}
 
 module "serverless_jenkins" {
   source                          = "../modules/jenkins_platform"
   name_prefix                     = local.name_prefix
   tags                            = local.tags
   vpc_id                          = var.vpc_id
-  #efs_kms_key_arn                 = aws_kms_key.efs_kms_key.arn
+  efs_kms_key_arn                 = aws_kms_key.efs_kms_key.arn
   efs_subnet_ids                  = var.efs_subnet_ids
   jenkins_controller_subnet_ids   = var.jenkins_controller_subnet_ids
   alb_subnet_ids                  = var.alb_subnet_ids
@@ -47,6 +51,6 @@ module "serverless_jenkins" {
   alb_acm_certificate_arn         = "arn:aws:acm:us-east-1:806483491539:certificate/a434e826-52e1-4793-a400-9394fa44c577"
   #route53_create_alias            = true
   #route53_alias_name              = var.jenkins_dns_alias
- # route53_zone_id                 = var.route53_zone_id
+  #route53_zone_id                 = var.route53_zone_id
+ 
 }
-

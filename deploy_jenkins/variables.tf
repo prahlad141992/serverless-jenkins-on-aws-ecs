@@ -3,11 +3,6 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
-variable "uniqueflagvalue" {
-  description = "Change this value to force regeneration of ELB.  Reuse existing value to maintain existing ELB possibly linked to DNS alias"
-  default     = "dev"
-}
-
 variable "tags" {
   description = "A map of tags to add to ECS Cluster"
   type        = map(string)
