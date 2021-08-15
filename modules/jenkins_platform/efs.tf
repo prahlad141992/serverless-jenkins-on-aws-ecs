@@ -1,6 +1,6 @@
 // EFS including backups
 resource "aws_efs_file_system" this {
-  creation_token = "${var.name_prefix}-fs"
+  creation_token = "${var.name_prefix}-efs"
 
   encrypted                       = var.efs_enable_encryption
   kms_key_id                      = var.efs_kms_key_arn
@@ -27,7 +27,7 @@ resource "aws_efs_access_point" this {
     uid = 0
   }
   root_directory {
-    path = "/"
+    path = "/jenkins_home"
     creation_info {
       owner_gid   = var.efs_access_point_uid
       owner_uid   = var.efs_access_point_gid

@@ -66,6 +66,7 @@ resource "aws_ecs_task_definition" jenkins_controller {
 
     efs_volume_configuration {
       file_system_id     = aws_efs_file_system.this.id
+      root_directory     = "/jenkins_home"
       transit_encryption = "ENABLED"
 
       authorization_config {
